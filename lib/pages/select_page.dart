@@ -11,6 +11,8 @@ class SelectPage extends ConsumerStatefulWidget {
 }
 
 class _SelectPageState extends ConsumerState<SelectPage> {
+  final pageController = PageController();
+
   @override
   void initState() {
     init();
@@ -21,13 +23,24 @@ class _SelectPageState extends ConsumerState<SelectPage> {
     await ref.read(inventoryProvider.notifier).getInventory();
   }
 
+  List<Widget> getGladiatorsSelectPages() {
+    return [SizedBox()];
+  }
+
   @override
   Widget build(BuildContext context) {
-    var inventory = ref.watch(inventoryProvider)?.data;
+    ref.watch(inventoryProvider)?.data;
     return Scaffold(
       body: Column(
         children: [
-          Expanded(child: Center(child: Text('data'))),
+          Expanded(
+            child: PageView(
+              scrollDirection: Axis.horizontal,
+              physics: BouncingScrollPhysics(),
+              controller: pageController,
+              children: getGladiatorsSelectPages(),
+            ),
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10.0),

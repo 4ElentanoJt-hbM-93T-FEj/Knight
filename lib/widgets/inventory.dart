@@ -61,24 +61,27 @@ class _InventoryState extends ConsumerState<Inventory> {
                     ? (inventory?.weapons?.length ?? 0)
                     : (inventory?.shields?.length ?? 0),
             itemBuilder: (BuildContext ctx, index) {
-              return Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  // color: Colors.amber,
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(width: 1, style: BorderStyle.solid),
-                ),
-                child: Column(
-                  children: [
-                    // AspectRatio(aspectRatio: 3 / 2, child: Image.asset("")),
-                    Text(
-                      currentTab == "armor"
-                          ? (inventory?.armor?[index].name ?? "")
-                          : currentTab == "weapons"
-                          ? (inventory?.weapons?[index].name ?? "")
-                          : (inventory?.shields?[index].name ?? ""),
-                    ),
-                  ],
+              return GestureDetector(
+                onTap: () {},
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    // color: Colors.amber,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(width: 1, style: BorderStyle.solid),
+                  ),
+                  child: Column(
+                    children: [
+                      // AspectRatio(aspectRatio: 3 / 2, child: Image.asset("")),
+                      Text(
+                        currentTab == "armor"
+                            ? (inventory?.armor?[index].name ?? "")
+                            : currentTab == "weapons"
+                            ? (inventory?.weapons?[index].name ?? "")
+                            : (inventory?.shields?[index].name ?? ""),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },

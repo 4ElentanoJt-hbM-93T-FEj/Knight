@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:gladiators/pages/select_page.dart';
 import 'package:lottie/lottie.dart';
@@ -12,6 +14,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    changeScreen();
+    super.initState();
+  }
+
+  Future<void> changeScreen() async {
     Future.delayed(Duration(seconds: 1), () {
       Navigator.pop(context);
       Navigator.push(
@@ -19,7 +26,6 @@ class _SplashScreenState extends State<SplashScreen> {
         MaterialPageRoute(builder: (context) => const SelectPage()),
       );
     });
-    super.initState();
   }
 
   @override
