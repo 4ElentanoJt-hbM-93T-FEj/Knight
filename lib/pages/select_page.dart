@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gladiators/provider/provider.dart';
+import 'package:gladiators/widgets/enquip_character.dart';
 import 'package:gladiators/widgets/inventory.dart';
 
 class SelectPage extends ConsumerStatefulWidget {
@@ -23,24 +24,14 @@ class _SelectPageState extends ConsumerState<SelectPage> {
     await ref.read(inventoryProvider.notifier).getInventory();
   }
 
-  List<Widget> getGladiatorsSelectPages() {
-    return [SizedBox()];
-  }
-
   @override
   Widget build(BuildContext context) {
     ref.watch(inventoryProvider)?.data;
+    ref.watch(gladiatorsContainerProvider);
     return Scaffold(
       body: Column(
         children: [
-          Expanded(
-            child: PageView(
-              scrollDirection: Axis.horizontal,
-              physics: BouncingScrollPhysics(),
-              controller: pageController,
-              children: getGladiatorsSelectPages(),
-            ),
-          ),
+          Expanded(child: EnquipCharacterWidget()),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10.0),

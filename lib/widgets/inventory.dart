@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gladiators/provider/provider.dart';
 
 class Inventory extends ConsumerStatefulWidget {
@@ -62,24 +63,54 @@ class _InventoryState extends ConsumerState<Inventory> {
                     : (inventory?.shields?.length ?? 0),
             itemBuilder: (BuildContext ctx, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  if ((ref.read(gladiatorsContainerProvider)).isNotEmpty) {}
+                },
                 child: Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    // color: Colors.amber,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(width: 1, style: BorderStyle.solid),
                   ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      SizedBox(height: 10),
                       // AspectRatio(aspectRatio: 3 / 2, child: Image.asset("")),
-                      Text(
-                        currentTab == "armor"
-                            ? (inventory?.armor?[index].name ?? "")
-                            : currentTab == "weapons"
-                            ? (inventory?.weapons?[index].name ?? "")
-                            : (inventory?.shields?[index].name ?? ""),
+                      Expanded(
+                        child: Center(
+                          child:
+                            // "armor": "Броня",
+                            // "weapons": "Оружие",
+                            // "shields": "Щиты",
+                              currentTab == "armor"
+                                  ? SvgPicture.asset(
+                                    "lib/assets/img/swords/armor.svg",
+                                  )
+                                  : Image.asset(
+                                    currentTab == "weapons"
+                                        ? "lib/assets/img/swords/sword.png"
+                                        : currentTab == "shields"
+                                        ? "lib/assets/img/swords/shield.png"
+                                        : "",
+                                  ),
+                        ),
                       ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              currentTab == "armor"
+                                  ? (inventory?.armor?[index].name ?? "")
+                                  : currentTab == "weapons"
+                                  ? (inventory?.weapons?[index].name ?? "")
+                                  : (inventory?.shields?[index].name ?? ""),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10),
                     ],
                   ),
                 ),
