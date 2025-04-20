@@ -69,6 +69,8 @@ flutter:
     - lib/assets/img/swords/sword.png
     - lib/assets/img/swords/armor.svg
     - lib/assets/img/swords/shield.png
+    - lib/assets/img/wall.jpg
+    - lib/assets/img/kuznets.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

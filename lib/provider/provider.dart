@@ -64,24 +64,34 @@ class GladiatorsContainer extends StateNotifier<List<Gladiators>> {
   GladiatorsContainer() : super([]);
 
   void setListGladiator(Gladiators character) {
+    // if (state.isNotEmpty) {
+    //   listGladiator.add(state[0]);
+    // }
     List<Gladiators> listGladiator = [];
-    if (state.isNotEmpty) {
-      listGladiator.add(state[0]);
-    }
+    listGladiator = [...state];
     listGladiator.add(character);
     state = listGladiator;
   }
 
-  void setArmor(Gladiators gladiator, Armor armor, int index) {
-    state[index].armor = armor;
+  void setArmor(Armor armor, int index) {
+    List<Gladiators> listGladiator = [];
+    listGladiator = [...state];
+    listGladiator[index - 1].armor = armor;
+    state = listGladiator;
   }
 
-  void setWearpon(Gladiators gladiator, Armor weapon, int index) {
-    state[index].weapons = weapon;
+  void setWearpon(Armor weapon, int index) {
+    List<Gladiators> listGladiator = [];
+    listGladiator = [...state];
+    listGladiator[index - 1].weapons = weapon;
+    state = listGladiator;
   }
 
-  void setShield(Gladiators gladiator, Armor shield, int index) {
-    state[index].shields = shield;
+  void setShield(Armor shield, int index) {
+    List<Gladiators> listGladiator = [];
+    listGladiator = [...state];
+    listGladiator[index - 1].shields = shield;
+    state = listGladiator;
   }
 }
 

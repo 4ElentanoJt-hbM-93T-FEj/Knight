@@ -29,16 +29,27 @@ class _SelectPageState extends ConsumerState<SelectPage> {
     ref.watch(inventoryProvider)?.data;
     ref.watch(gladiatorsContainerProvider);
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(child: EnquipCharacterWidget()),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Inventory(),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(child: EnquipCharacterWidget()),
+            Expanded(
+              child: Stack(
+                children: [
+                  // SizedBox(
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height: MediaQuery.of(context).size.height,
+                  //   child: Image.asset(
+                  //     'lib/assets/img/wall.jpg',
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  // ),
+                  Inventory(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
