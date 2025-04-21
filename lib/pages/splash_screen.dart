@@ -31,12 +31,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        child: Center(
-          child: LottieBuilder.asset(
-            'lib/assets/animation/splash.json',
-            width: MediaQuery.of(context).size.width / 2,
-            height: MediaQuery.of(context).size.height / 2,
+      body: SafeArea(
+        child: SizedBox(
+          child: Center(
+            child: LottieBuilder.asset(
+              'lib/assets/animation/splash.json',
+              width: MediaQuery.of(context).size.width / 2,
+              height: MediaQuery.of(context).size.height / 2,
+            ),
           ),
         ),
       ),

@@ -159,7 +159,7 @@ class Gladiator {
     _checkWeaponDurability();
 
     if (weapons == null) {
-      HistoryBattle.historyBattle += ('$name атакует без оружия!');
+      HistoryBattle.historyBattle += ('$name атакует без оружия!\n');
       return max(1, baseAttack ~/ 3);
     }
 
@@ -234,7 +234,7 @@ class Gladiator {
     if (weapons != null) {
       _useWeaponSpecial(opponent);
     } else {
-      HistoryBattle.historyBattle += ('$name использует базовую атаку!');
+      HistoryBattle.historyBattle += ('$name использует базовую атаку!\n');
       int damage = calculateDamage(opponent);
       opponent.takeDamage(damage);
       HistoryBattle.historyBattle +=
@@ -305,9 +305,9 @@ class Gladiator {
     Future<void> printItem(String type, Armor? item) async {
       if (item != null) {
         HistoryBattle.historyBattle +=
-            ('$type: ${item.type} (прочность: ${item.durability})\m');
+            ('$type: ${item.type} (прочность: ${item.durability})\n');
       } else {
-        HistoryBattle.historyBattle += ('$type: нет');
+        HistoryBattle.historyBattle += ('$type: нет\n');
       }
     }
 
@@ -333,7 +333,7 @@ class Battle {
     Gladiator gladiator1,
     Gladiator gladiator2,
   ) async {
-    HistoryBattle.historyBattle += ('\n=== НАЧАЛО БОЯ ===');
+    HistoryBattle.historyBattle += ('\n=== НАЧАЛО БОЯ ===\n');
     HistoryBattle.historyBattle +=
         ('${gladiator1.name} против ${gladiator2.name}!\n');
 
@@ -353,7 +353,7 @@ class Battle {
     }
 
     HistoryBattle.historyBattle +=
-        ('\n${attacker.name} атакует первым благодаря своей скорости!');
+        ('\n${attacker.name} атакует первым благодаря своей скорости!\n');
 
     int round = 1;
     while (gladiator1.isAlive() && gladiator2.isAlive()) {
@@ -375,10 +375,10 @@ class Battle {
 
     HistoryBattle.historyBattle += ('\n=== БОЙ ОКОНЧЕН ===');
     if (gladiator1.isAlive()) {
-      return ('${gladiator1.name} побеждает с ${gladiator1.health} здоровья!');
+      return ('${gladiator1.name} побеждает с ${gladiator1.health} здоровья!\n');
       // gladiator1.printEquipmentStatus();
     } else {
-      return ('${gladiator2.name} побеждает с ${gladiator2.health} здоровья!');
+      return ('${gladiator2.name} побеждает с ${gladiator2.health} здоровья!\n');
       // gladiator2.printEquipmentStatus();
     }
   }

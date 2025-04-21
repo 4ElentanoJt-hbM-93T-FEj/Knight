@@ -90,11 +90,15 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
             ref.watch(gladiatorsContainerProvider).isNotEmpty
                 ? ElevatedButton(
                   onPressed: () {
+                    if (gladiators[gladiators.length - 1].name == null) {
+                      gladiators[gladiators.length - 1].name =
+                          "Гладиатор ${gladiators.length}";
+                    }
+                    nameController.text = "";
                     if ((ref.read(gladiatorsContainerProvider).length) != 2) {
                       ref
                           .read(gladiatorsContainerProvider.notifier)
                           .setListGladiator(Gladiator());
-                      nameController.text = "";
                     } else {
                       Navigator.pop(context);
                       Navigator.push(

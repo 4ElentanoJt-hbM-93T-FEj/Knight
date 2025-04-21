@@ -23,49 +23,52 @@ class _ArenaPageState extends ConsumerState<ArenaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Center(
-              child: LottieBuilder.asset(
-                ref.watch(battleStatusProvider) == "Ожидание"
-                    ? "lib/assets/animation/battle_anim.json"
-                    : "lib/assets/animation/finish_1.json",
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Center(
+                child: LottieBuilder.asset(
+                  ref.watch(battleStatusProvider) == "Ожидание"
+                      ? "lib/assets/animation/battle_anim.json"
+                      : "lib/assets/animation/finish_1.json",
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: Expanded(
-                    child: Text(
-                      "Статус игры: ${ref.watch(battleStatusProvider)}",
-                      style: TextStyle(fontSize: 24),
-                      textAlign: TextAlign.center,
-                    ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Статус игры: ${ref.watch(battleStatusProvider)}",
+                          style: TextStyle(fontSize: 24),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Expanded(
-                  child: Container(
+                  Container(
+                    height: MediaQuery.of(context).size.height / 3,
                     padding: const EdgeInsets.symmetric(horizontal: 30.0),
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
                           SizedBox(height: 20),
-                          Text("История боя", style: TextStyle(fontSize: 24)),
-                          Text(HistoryBattle.historyBattle),
+                          if (HistoryBattle.historyBattle != "") ...[
+                            Text("История боя", style: TextStyle(fontSize: 24)),
+                            Text(HistoryBattle.historyBattle),
+                          ] else
+                            SizedBox(),
                         ],
                       ),
                     ),
                   ),
-                ),
-                ref.watch(battleStatusProvider) == "Ожидание"
-                    ? Expanded(
-                      child: Column(
+                  ref.watch(battleStatusProvider) == "Ожидание"
+                      ? Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ElevatedButton(
@@ -86,23 +89,23 @@ class _ArenaPageState extends ConsumerState<ArenaPage> {
                             child: Text("Начать бой"),
                           ),
                         ],
-                      ),
-                    )
-                    : SizedBox(),
-              ],
+                      )
+                      : SizedBox(),
+                ],
+              ),
             ),
-          ),
 
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [Text("Arena")],
-          // ),
-          // SizedBox(
-          //   width: MediaQuery.of(context).size.width,
-          //   height: MediaQuery.of(context).size.height,
-          //   child: Image.asset('lib/assets/img/kuznets.jpg', fit: BoxFit.cover),
-          // ),
-        ],
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [Text("Arena")],
+            // ),
+            // SizedBox(
+            //   width: MediaQuery.of(context).size.width,
+            //   height: MediaQuery.of(context).size.height,
+            //   child: Image.asset('lib/assets/img/kuznets.jpg', fit: BoxFit.cover),
+            // ),
+          ],
+        ),
       ),
     );
   }
