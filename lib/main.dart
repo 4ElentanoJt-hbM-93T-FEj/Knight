@@ -22,7 +22,6 @@ class _MainPageState extends State<MainPage> {
       routes: {
         // Главный экран
         '/': (context) => SplashScreen(),
-        // '/selectKnightPage': (context) => const DetailsScreen(),
       },
     );
   }

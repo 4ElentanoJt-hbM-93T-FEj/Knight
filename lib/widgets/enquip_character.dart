@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gladiators/pages/arena_page.dart';
 import 'package:gladiators/provider/provider.dart';
 import 'package:lottie/lottie.dart';
 
@@ -12,6 +13,14 @@ class EnquipCharacterWidget extends ConsumerStatefulWidget {
 }
 
 class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
+  TextEditingController nameController = TextEditingController();
+
+  @override
+  void initState() {
+    // nameController.text = "Имя гладиатора";
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var gladiators = ref.watch(gladiatorsContainerProvider);
@@ -37,14 +46,35 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
+
+            ref.read(gladiatorsContainerProvider).isNotEmpty
+                ? Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: TextField(
+                        controller: nameController,
+                        onChanged: (String value) {
+                          gladiators[gladiators.length - 1].name = value;
+                        },
+                        decoration: InputDecoration(
+                          hintText: "Дайте имя гладиатору",
+                          // border: OutlineInputBorder(borderSide: BorderSide()),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                  ],
+                )
+                : SizedBox(),
             Expanded(
               child: GestureDetector(
                 onTap: () {
                   if (ref.read(gladiatorsContainerProvider).isEmpty) {
                     ref
                         .read(gladiatorsContainerProvider.notifier)
-                        .setListGladiator(Gladiators());
+                        .setListGladiator(Gladiator());
                   }
                 },
                 child:
@@ -63,10 +93,16 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
                     if ((ref.read(gladiatorsContainerProvider).length) != 2) {
                       ref
                           .read(gladiatorsContainerProvider.notifier)
-                          .setListGladiator(Gladiators());
-                    }
-                    if ((ref.read(gladiatorsContainerProvider).length) == 2) {
-                      // Добавить навигацию на страницу боя
+                          .setListGladiator(Gladiator());
+                      nameController.text = "";
+                    } else {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ArenaPage(),
+                        ),
+                      );
                     }
                   },
                   child: Text("Готово"),

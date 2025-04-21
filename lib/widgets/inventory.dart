@@ -15,7 +15,7 @@ class _InventoryState extends ConsumerState<Inventory> {
   bool isSelectedItem(
     String tab,
     int index,
-    List<Gladiators> gladiators,
+    List<Gladiator> gladiators,
     Data? inventory,
   ) {
     return tab == "armor"

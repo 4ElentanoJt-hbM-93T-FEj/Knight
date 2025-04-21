@@ -71,6 +71,9 @@ flutter:
     - lib/assets/img/swords/shield.png
     - lib/assets/img/wall.jpg
     - lib/assets/img/kuznets.jpg
+    - lib/assets/animation/battle_anim.json
+    - lib/assets/animation/finish_1.json
+    - lib/assets/animation/finish_2.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
