@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> changeScreen() async {
-    Future.delayed(Duration(seconds: 2, microseconds: 500), () {
+    Future.delayed(Duration(seconds: 4, microseconds: 500), () {
       Navigator.pop(context);
       Navigator.push(
         context,
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: SizedBox(
           child: Center(
             child: LottieBuilder.asset(
-              'lib/assets/animation/splash.json',
+              'lib/assets/animation/loading.json',
               width: MediaQuery.of(context).size.width / 2,
               height: MediaQuery.of(context).size.height / 2,
             ),

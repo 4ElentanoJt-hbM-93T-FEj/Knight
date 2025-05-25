@@ -33,21 +33,7 @@ class _SelectPageState extends ConsumerState<SelectPage> {
         child: Column(
           children: [
             Expanded(child: EnquipCharacterWidget()),
-            Expanded(
-              child: Stack(
-                children: [
-                  // SizedBox(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   height: MediaQuery.of(context).size.height,
-                  //   child: Image.asset(
-                  //     'lib/assets/img/wall.jpg',
-                  //     fit: BoxFit.cover,
-                  //   ),
-                  // ),
-                  Inventory(),
-                ],
-              ),
-            ),
+            Expanded(child: Inventory()),
           ],
         ),
       ),

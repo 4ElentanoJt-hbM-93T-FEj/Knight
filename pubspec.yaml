@@ -74,6 +74,15 @@ flutter:
     - lib/assets/animation/battle_anim.json
     - lib/assets/animation/finish_1.json
     - lib/assets/animation/finish_2.json
+    - lib/assets/animation/fighter.json
+    - lib/assets/animation/bandito.json
+    - lib/assets/animation/finish.json
+    - lib/assets/animation/loading.json
+    - lib/assets/animation/tap.json
+    - lib/assets/img/armor(1).png
+    - lib/assets/img/shield(1).png
+    - lib/assets/img/sword(1).png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

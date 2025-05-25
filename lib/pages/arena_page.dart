@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gladiators/pages/splash_screen.dart';
 import 'package:gladiators/provider/provider.dart';
 import 'package:lottie/lottie.dart';
 
@@ -16,8 +17,16 @@ class _ArenaPageState extends ConsumerState<ArenaPage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) async {});
-
     super.initState();
+  }
+
+  void startAgain() {
+    ref.read(gladiatorsContainerProvider).clear();
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SplashScreen()),
+    );
   }
 
   @override
@@ -28,11 +37,16 @@ class _ArenaPageState extends ConsumerState<ArenaPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Center(
-                child: LottieBuilder.asset(
-                  ref.watch(battleStatusProvider) == "Ожидание"
-                      ? "lib/assets/animation/battle_anim.json"
-                      : "lib/assets/animation/finish_1.json",
+              child: GestureDetector(
+                onTap: () {
+                  startAgain();
+                },
+                child: Center(
+                  child: LottieBuilder.asset(
+                    ref.watch(battleStatusProvider) == "Ожидание"
+                        ? "lib/assets/animation/battle_anim.json"
+                        : "lib/assets/animation/finish.json",
+                  ),
                 ),
               ),
             ),

@@ -17,7 +17,6 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
 
   @override
   void initState() {
-    // nameController.text = "Имя гладиатора";
     super.initState();
   }
 
@@ -26,11 +25,6 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
     var gladiators = ref.watch(gladiatorsContainerProvider);
     return Stack(
       children: [
-        // SizedBox(
-        //   width: MediaQuery.of(context).size.width,
-        //   height: MediaQuery.of(context).size.height,
-        //   child: Image.asset('lib/assets/img/kuznets.jpg', fit: BoxFit.cover),
-        // ),
         Column(
           children: [
             SizedBox(height: 20),
@@ -60,7 +54,6 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
                         },
                         decoration: InputDecoration(
                           hintText: "Дайте имя гладиатору",
-                          // border: OutlineInputBorder(borderSide: BorderSide()),
                         ),
                       ),
                     ),
@@ -79,11 +72,13 @@ class _EnquipCharacterWidgetState extends ConsumerState<EnquipCharacterWidget> {
                 },
                 child:
                     (ref.watch(gladiatorsContainerProvider).isEmpty)
+                        ? LottieBuilder.asset('lib/assets/animation/tap.json')
+                        : ref.watch(gladiatorsContainerProvider).length == 1
                         ? LottieBuilder.asset(
-                          'lib/assets/animation/anim_one.json',
+                          'lib/assets/animation/fighter.json',
                         )
                         : LottieBuilder.asset(
-                          'lib/assets/animation/knight.json',
+                          'lib/assets/animation/bandito.json',
                         ),
               ),
             ),
