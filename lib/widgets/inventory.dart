@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gladiators/provider/model.dart';
 import 'package:gladiators/provider/provider.dart';
 
@@ -172,21 +171,13 @@ class _InventoryState extends ConsumerState<Inventory> {
                         // AspectRatio(aspectRatio: 3 / 2),
                         Expanded(
                           child: Center(
-                            child:
-                                // "armor": "Броня",
-                                // "weapons": "Оружие",
-                                // "shields": "Щиты",
-                                currentTab == "armor"
-                                    ? SvgPicture.asset(
-                                      "lib/assets/img/swords/armor.svg",
-                                    )
-                                    : Image.asset(
-                                      currentTab == "weapons"
-                                          ? "lib/assets/img/swords/sword.png"
-                                          : currentTab == "shields"
-                                          ? "lib/assets/img/swords/shield.png"
-                                          : "",
-                                    ),
+                            child: Image.asset(
+                              currentTab == "armor"
+                                  ? (inventory?.armor?[index].image ?? "")
+                                  : currentTab == "weapons"
+                                  ? (inventory?.weapons?[index].image ?? "")
+                                  : (inventory?.shields?[index].image ?? ""),
+                            ),
                           ),
                         ),
                         Row(

@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> changeScreen() async {
-    Future.delayed(Duration(seconds: 2, microseconds: 500), () {
+    Future.delayed(Duration(seconds: 5, milliseconds: 925), () {
       Navigator.pop(context);
       Navigator.push(
         context,

@@ -66,11 +66,17 @@ flutter:
     - lib/data/data.json
     - lib/assets/animation/anim_one.json
     - lib/assets/animation/anim_two.json
-    - lib/assets/img/swords/sword.png
-    - lib/assets/img/swords/armor.svg
-    - lib/assets/img/swords/shield.png
-    - lib/assets/img/wall.jpg
-    - lib/assets/img/kuznets.jpg
+    - lib/assets/img/free-icon-chainmail-1185753.png
+    - lib/assets/img/free-icon-armor-1065537.png
+    - lib/assets/img/free-icon-armor-1455020.png
+    - lib/assets/img/free-icon-armor-728874.png
+    - lib/assets/img/free-icon-sword-2701821.png
+    - lib/assets/img/free-icon-crossbow-1043577.png
+    - lib/assets/img/free-icon-battle-axe-3763396.png
+    - lib/assets/img/free-icon-magic-staff-10606252.png
+    - lib/assets/img/free-icon-dagger-5005880.png
+    - lib/assets/img/free-icon-shield-5153194.png
+    - lib/assets/img/free-icon-shield-2016965.png
     - lib/assets/animation/battle_anim.json
     - lib/assets/animation/finish_1.json
     - lib/assets/animation/finish_2.json

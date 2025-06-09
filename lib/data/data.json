@@ -9,7 +9,8 @@
         "weight": 10,
         "durability": 80,
         "material": "сталь",
-        "special_effects": "уменьшает урон от режущего оружия на 15%"
+        "special_effects": "уменьшает урон от режущего оружия на 15%",
+        "image": "lib/assets/img/free-icon-chainmail-1185753.png"
       },
       {
         "id": 2,
@@ -19,7 +20,8 @@
         "weight": 25,
         "durability": 95,
         "material": "закаленная сталь",
-        "special_effects": "уменьшает урон от колющего оружия на 25%"
+        "special_effects": "уменьшает урон от колющего оружия на 25%",
+        "image": "lib/assets/img/free-icon-armor-1065537.png"
       },
       {
         "id": 3,
@@ -29,7 +31,8 @@
         "weight": 5,
         "durability": 60,
         "material": "закаленная кожа",
-        "special_effects": "+10% к скорости передвижения"
+        "special_effects": "+10% к скорости передвижения",
+        "image": "lib/assets/img/free-icon-armor-1455020.png"
       },
       {
         "id": 4,
@@ -39,7 +42,8 @@
         "weight": 12,
         "durability": 110,
         "material": "драконья чешуя",
-        "special_effects": "сопротивление огню 50%"
+        "special_effects": "сопротивление огню 50%",
+        "image": "lib/assets/img/free-icon-armor-728874.png"
       }
     ],
 
@@ -52,7 +56,8 @@
         "weight": 8,
         "durability": 90,
         "material": "дамасская сталь",
-        "special_effects": "критический удар x3"
+        "special_effects": "критический удар x3",
+        "image": "lib/assets/img/free-icon-sword-2701821.png"
       },
       {
         "id": 2,
@@ -63,7 +68,8 @@
         "durability": 75,
         "material": "сталь/дерево",
         "range": 80,
-        "special_effects": "пробивает броню на 30%"
+        "special_effects": "пробивает броню на 30%",
+        "image": "lib/assets/img/free-icon-crossbow-1043577.png"
       },
       {
         "id": 3,
@@ -73,7 +79,8 @@
         "weight": 7,
         "durability": 85,
         "material": "закаленная сталь",
-        "special_effects": "+2 к силе при атаке"
+        "special_effects": "+2 к силе при атаке",
+        "image": "lib/assets/img/free-icon-battle-axe-3763396.png"
       },
       {
         "id": 4,
@@ -83,7 +90,8 @@
         "weight": 3,
         "durability": 50,
         "material": "древесина древнего дуба",
-        "special_effects": "+2 к силе заклинаний"
+        "special_effects": "+2 к силе заклинаний",
+        "image": "lib/assets/img/free-icon-magic-staff-10606252.png"
       },
       {
         "id": 5,
@@ -93,7 +101,8 @@
         "weight": 1,
         "durability": 65,
         "material": "обсидиан",
-        "special_effects": "незаметность +20% в тени"
+        "special_effects": "незаметность +20% в тени",
+        "image": "lib/assets/img/free-icon-dagger-5005880.png"
       }
     ],
 
@@ -106,7 +115,8 @@
         "weight": 6,
         "durability": 70,
         "material": "сталь/дерево",
-        "special_effects": "+1 к парированию"
+        "special_effects": "+1 к парированию",
+        "image": "lib/assets/img/free-icon-shield-5153194.png"
       },
       {
         "id": 2,
@@ -116,7 +126,8 @@
         "weight": 12,
         "durability": 100,
         "material": "сталь",
-        "special_effects": "полное прикрытие от стрел спереди"
+        "special_effects": "полное прикрытие от стрел спереди",
+        "image": "lib/assets/img/free-icon-shield-2016965.png"
       }
     ]
   }
